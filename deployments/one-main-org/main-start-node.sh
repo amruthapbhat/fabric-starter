@@ -21,7 +21,7 @@ echo "THIS_ORG: $THIS_ORG"
 
 # generate/up orderer
 /home/ubuntu/fabric-starter/network.sh -m generate-orderer -M $THIS_ORG
-network.sh -m up-orderer
+/home/ubuntu/fabric-starter/network.sh -m up-orderer
 
 #start up main org
 /home/ubuntu/fabric-starter/network.sh -m up-one-org -o $THIS_ORG -M $THIS_ORG -k common

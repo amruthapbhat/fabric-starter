@@ -836,7 +836,7 @@ function registerNewOrg() {
       # downloading newOrgMSP.json config
 #      info " >> first downloading new org configuration json file from ip $ip"
 
-      command="wget ${WGET_OPTS} http://$ip:$DEFAULT_WWW_PORT/${new_org}Config.json"
+      command="sudo wget ${WGET_OPTS} http://$ip:$DEFAULT_WWW_PORT/${new_org}Config.json"
       echo ${c}
       docker-compose --file ${f} run --rm "${d}" bash -c "${command} && chown -R $UID:$GID ."
 
@@ -878,7 +878,7 @@ function updateChannelConfig() {
   echo $command
   docker exec ${d} bash -c "$command"
 
-  command="jq .data.data[0].payload.data.config config_block.json > config.json"
+  command="sudo jq .data.data[0].payload.data.config config_block.json > config.json"
   echo $command
   eval $command
 
@@ -891,7 +891,7 @@ function updateChannelConfig() {
   echo $command
   docker exec ${d} bash -c "$command"
 
-  command="echo '{\"payload\":{\"header\":{\"channel_header\":{\"channel_id\":\"$channel\",\"type\":2}},\"data\":{\"config_update\":'\`cat update.json\`'}}}' | jq . > update_in_envelope.json"
+  command="echo '{\"payload\":{\"header\":{\"channel_header\":{\"channel_id\":\"$channel\",\"type\":2}},\"data\":{\"config_update\":'\`sudo cat update.json\`'}}}' | jq . > update_in_envelope.json"
   echo $command
   eval $command
 

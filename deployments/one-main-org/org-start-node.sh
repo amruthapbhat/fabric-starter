@@ -5,7 +5,7 @@
 ###########################################################################
 echo "Start org"
 /home/ubuntu/fabric-starter/network.sh -m add-org-connectivity -o $THIS_ORG -M $MAIN_ORG -R $MAIN_ORG -i ${IP1}
-network.sh -m up-one-org -o $THIS_ORG -M $MAIN_ORG
+/home/ubuntu/fabric-starter/network.sh -m up-one-org -o $THIS_ORG -M $MAIN_ORG
 
 
 echo -e $separateLine
